@@ -1,11 +1,17 @@
 <template>
     <div>
+      <div>
       <p>服务启停</p>
       <p>{{ count }}</p>
       <p>
         <a-button type="primary" @click="increment">+</a-button>
         <a-button type="primary" @click="decrement">-</a-button>
       </p>
+      </div>
+      <div>
+        <a-button type="primary" @click="pushrouter">路由测试</a-button>
+      </div>
+      <div><router-view></router-view></div>
     </div>
 </template>
 
@@ -25,6 +31,9 @@ export default {
     },
     decrement () {
       store.commit('decrement')
+    },
+    pushrouter () {
+      this.$router.push({name: 'testcmp'})
     }
   }
 }

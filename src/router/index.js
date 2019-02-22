@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import ServiceCtrlCmp from '@/components/ServiceCtrlCmp'
 import StepServiceCtrlCmp from '@/components/Step_ServiceCtrl_Cmp'
+import TestCmp from '@/components/TestCmp'
 
 Vue.use(Router)
 
@@ -16,7 +17,14 @@ export default new Router({
     {
       path: '/servicectrlcmp',
       name: 'servicectrl',
-      component: ServiceCtrlCmp
+      component: ServiceCtrlCmp,
+      children: [
+        {
+          path: 'testcmp',
+          name: 'testcmp',
+          component: TestCmp
+        }
+      ]
     },
     {
       path: '/step_servicectrl_cmp',

@@ -27,7 +27,7 @@
         上一步
       </a-button>
     </div>
-    <div class="steps-content">{{steps[current].content}}</div>
+    <div class="steps-content"><router-view></router-view></div>
   </div>
 </template>
 

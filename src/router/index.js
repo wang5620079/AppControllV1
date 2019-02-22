@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import ServiceCtrlCmp from '@/components/ServiceCtrlCmp'
 import StepServiceCtrlCmp from '@/components/Step_ServiceCtrl_Cmp'
-import TestCmp from '@/components/TestCmp'
+import CtrlScopeCmp from '@/components/CtrlScopeCmp'
+import TestCmp from '@/components/TestCmp1'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/step_servicectrl_cmp',
       name: 'step_servicectrl_cmp',
       component: StepServiceCtrlCmp
+    },
+    {
+      path: '/ctrlscopecmp',
+      name: 'ctrlscopecmp',
+      component: CtrlScopeCmp
     }
   ]
 })

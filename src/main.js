@@ -11,6 +11,7 @@ import moment from 'moment'
 import 'moment/locale/zh-cn'
 
 import 'ant-design-vue/dist/antd.css'
+require('./mock')
 
 Vue.config.productionTip = false
 Vue.use(Vuex)

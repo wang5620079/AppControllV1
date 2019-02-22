@@ -4,11 +4,10 @@
       <a-form
         layout="inline"
         :form="form"
-        @submit="handleSubmit"
       >
         <a-form-item
-          label="系统名称"
-          :label-col="{ span: 5 }"
+          label="系统名称:"
+          :label-col="{ span: 6 }"
           :wrapper-col="{ span: 14 }"
         >
           <a-select
@@ -21,14 +20,12 @@
             @change="handleChange"
             :filterOption="filterOption"
           >
-            <a-select-option value="再保收付费系统">再保收付费系统</a-select-option>
-            <a-select-option value="新准备金系统">新准备金系统</a-select-option>
-            <a-select-option value="联保清分系统">联保清分系统</a-select-option>
+            <a-select-option :value=appinfo.appname v-for="appinfo in appinfos" :key="appinfo.id" >{{appinfo.appname}}</a-select-option>
           </a-select>
         </a-form-item>
         <a-form-item
           label="部署"
-          :label-col="{ span: 5 }"
+          :label-col="{ span: 10 }"
           :wrapper-col="{ span: 14 }"
         >
           <a-select
@@ -50,6 +47,7 @@
           <a-button
             type="primary"
             icon="search"
+            @click="queryappinfos"
           >查询
           </a-button>
         </a-form-item>
@@ -63,6 +61,19 @@
 <script>
 export default {
   name: 'CtrlScopeCmp',
+  data () {
+    return {
+      appinfos: [],
+      form: this.$form.createForm(this)
+    }
+  },
+  created: function () {
+    var me = this
+    this.axios.post('http://127.0.0.1/queryrandapppnames').then((response) => {
+      me.appinfos = response.data.appinfos
+      console.log(response.data)
+    })
+  },
   methods: {
     handleChange (value) {
       console.log(`selected ${value}`)
@@ -75,6 +86,13 @@ export default {
     },
     filterOption (input, option) {
       return option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
+    },
+    queryappinfos () {
+      var me = this
+      this.axios.post('http://127.0.0.1/queryrandapppnames').then((response) => {
+        me.appinfos = response.data.appinfos
+        console.log(me.appinfos)
+      })
     }
   }
 }

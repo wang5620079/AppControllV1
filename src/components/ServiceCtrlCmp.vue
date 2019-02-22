@@ -11,7 +11,11 @@
       <div>
         <a-button type="primary" @click="pushrouter">路由测试</a-button>
       </div>
-      <div><router-view></router-view></div>
+      <div>
+        <transition>
+          <router-view></router-view>
+        </transition>
+      </div>
     </div>
 </template>
 

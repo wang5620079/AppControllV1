@@ -1,33 +1,41 @@
 <template>
   <div>
     <a-steps :current="current">
-      <a-step v-for="item in steps" :key="item.title" :title="item.title" >
+      <a-step v-for="item in steps" :key="item.title" :title="item.title">
         <span slot="description">{{item.content}}</span>
       </a-step>
     </a-steps>
     <div class="steps-action">
-      <a-button
-        v-if="current < steps.length - 1"
-        type="primary" @click="next"
-      >
-        下一步
-      </a-button>
-      <a-button
-        v-if="current == steps.length - 1"
-        type="primary"
-        @click="$message.success('Processing complete!')"
-      >
-        完成
-      </a-button>
-      <a-button
-        v-if="current>0"
-        style="margin-left: 8px"
-        @click="prev"
-      >
-        上一步
-      </a-button>
+      <a-row type="flex" justify="space-between">
+        <a-col>
+          <a-button
+            v-if="current>0"
+            style="margin-left: 8px"
+            @click="prev"
+          >
+            上一步
+          </a-button>
+        </a-col>
+        <a-col>
+          <a-button
+            v-if="current < steps.length - 1"
+            type="primary" @click="next"
+          >
+            下一步
+          </a-button>
+          <a-button
+            v-if="current == steps.length - 1"
+            type="primary"
+            @click="$message.success('Processing complete!')"
+          >
+            完成
+          </a-button>
+        </a-col>
+      </a-row>
     </div>
-    <div class="steps-content"><router-view></router-view></div>
+    <div class="steps-content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

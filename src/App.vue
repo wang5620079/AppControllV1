@@ -30,8 +30,10 @@
           <a-menu-item key="sysmonitor_running_status">运行状态</a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="testcmps">
-          <span slot="title"><a-icon type="folder" /><span>组件测试</span></span>
-          <a-menu-item key="testcmps_cmp1"><router-link to="/servicectrlcmp">测试1</router-link></a-menu-item>
+          <span slot="title"><a-icon type="folder"/>
+            <span>组件测试</span>
+          </span>
+          <a-menu-item key="testcmps_cmp1"><router-link to="/servicectrlcmp"><a-badge count="5">测试1</a-badge></router-link></a-menu-item>
           <a-menu-item key="testcmps_cmp2"><router-link to="/step_servicectrl_cmp">测试2</router-link></a-menu-item>
           <a-menu-item key="testcmps_cmp3"><router-link to="/ctrlscopecmp">测试3</router-link></a-menu-item>
         </a-sub-menu>

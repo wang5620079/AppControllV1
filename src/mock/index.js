@@ -20,18 +20,12 @@ const randappnames = Mock.mock('http://127.0.0.1/queryrandapppnames', 'post', ()
   console.log(retobj)
   return retobj
 })
-
-const querynodes = Mock.mock('http://127.0.0.1/querynodes', 'post', () => {
-  let arr = []
-  for (let i = 0; i < 100; i++) {
-    arr.push({ id: 'app' + i, appname: '系统' + i, state: false })
-  }
-  var retobj = {
-    code: '200',
-    appinfos: arr
-  }
-  console.log(retobj)
-  return retobj
+// 模拟查询节点信息
+const querynodes = Mock.mock('http://127.0.0.1/querynodes', 'post', (options) => {
+  console.log('**************querynodes_mock***************')
+  console.log(JSON.parse(options.body))
+  let retmap = new Map([['app0', {id: 'dep0', name: '南中心'}], ['app1', {id: 'dep1', name: 'IDC机房'}], ['app2', {id: 'dep2', name: '中电投'}]])
+  return {code: '200', success: true}
 })
 
 const querydevelopment = Mock.mock('http://127.0.0.1/querydevelopment', 'post', function (options) {

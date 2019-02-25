@@ -18,6 +18,7 @@
             mode="multiple"
             @change="handleappinfoChange"
             :filterOption="filterOption"
+            :value="selectedappinfos"
           >
             <a-select-option :value=appinfo.id v-for="appinfo in appinfos" :key="appinfo.id">{{appinfo.appname}}
             </a-select-option>
@@ -49,7 +50,7 @@
           <a-button
             type="primary"
             icon="search"
-            @click="queryappinfos"
+            @click="querynodes"
           >查询
           </a-button>
         </a-form-item>
@@ -85,6 +86,7 @@ export default {
     return {
       form: this.$form.createForm(this),
       appinfos: [],
+      selectedappinfos: [],
       deploymentoptions: [],
       selecteddpls: [],
       nodesdata: [],
@@ -101,6 +103,7 @@ export default {
   methods: {
     handleappinfoChange (value) {
       console.log('**************handleappinfoChange***************')
+      this.selectedappinfos = value
       var me = this
       console.log(`selected ${value}`)
       // 如果什么选项都没选，就清空部署选择框及其已选的值
@@ -159,11 +162,11 @@ export default {
       return option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
       // return option.componentOptions.propsData.value.toLowerCase().indexOf(input.toLowerCase()) >= 0
     },
-    queryappinfos () {
+    querynodes () {
       var me = this
-      this.axios.post('http://127.0.0.1/queryrandapppnames').then((response) => {
-        me.appinfos = response.data.appinfos
-        console.log(me.appinfos)
+      this.axios.post('http://127.0.0.1/querynodes', {appinfos: me.selectedappinfos, deployments: me.selecteddpls}).then((response) => {
+        console.log('**************querynodes***************')
+        console.log(response.data)
       })
     }
   }

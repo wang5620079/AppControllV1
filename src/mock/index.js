@@ -4,9 +4,9 @@ const mocktest = Mock.mock('http://127.0.0.1/main.php?cid=1', 'post', () => {
   return MyInfo.page1
 })
 
-const appnames = Mock.mock('http://127.0.0.1/queryapppnames', 'post', () => {
-  return randappnames
-})
+// const appnames = Mock.mock('http://127.0.0.1/queryapppnames', 'post', () => {
+//   return randappnames
+// })
 
 const randappnames = Mock.mock('http://127.0.0.1/queryrandapppnames', 'post', () => {
   let arr = []
@@ -24,8 +24,19 @@ const randappnames = Mock.mock('http://127.0.0.1/queryrandapppnames', 'post', ()
 const querynodes = Mock.mock('http://127.0.0.1/querynodes', 'post', (options) => {
   console.log('**************querynodes_mock***************')
   console.log(JSON.parse(options.body))
-  let retmap = new Map([['app0', {id: 'dep0', name: '南中心'}], ['app1', {id: 'dep1', name: 'IDC机房'}], ['app2', {id: 'dep2', name: '中电投'}]])
-  return {code: '200', success: true}
+  // let random = Mock.random
+  // let retMap = new Map()
+  // for (let i = 0; i < 100; i++) {
+  //   let id = 'app'+i
+  //   let cnt = random.integer(2, 10)
+  //   let portbase = random.integer(60, 90) * 100
+  //   for (let j = 1; j < cnt; j++) {
+  //     if j===1:
+  //
+  //   }
+  //   let domainname = random.natural(1,10)
+  // }
+  // return {code: '200', success: true}
 })
 
 const querydevelopment = Mock.mock('http://127.0.0.1/querydevelopment', 'post', function (options) {
@@ -53,4 +64,4 @@ const querydevelopment = Mock.mock('http://127.0.0.1/querydevelopment', 'post', 
   return {code: '200', data: Array.from(tmpset)}
 })
 
-export default { mocktest, appnames, randappnames, querydevelopment, querynodes }
+export default { mocktest, randappnames, querydevelopment, querynodes }

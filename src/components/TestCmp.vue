@@ -9,7 +9,7 @@ export default {
   name: 'TestCmp',
   data () {
     return {
-      message: 'aa'
+      message: 'aaa'
     }
   }
 }

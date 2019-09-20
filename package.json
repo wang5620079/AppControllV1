@@ -1,7 +1,7 @@
 {
-  "name": "appcontrollv1",
+  "name": "webchecker",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "wechecker",
   "author": "win-pc <wang5620079@163.com>",
   "private": true,
   "scripts": {

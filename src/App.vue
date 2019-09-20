@@ -5,12 +5,12 @@
       v-model="collapsed"
     >
       <div class="logo"></div>
-      <a-menu theme="dark" :defaultSelectedKeys="['3']" mode="inline" defaultOpenKeys= "['sub1' 'sub2']">
+      <a-menu theme="dark" :defaultSelectedKeys="['3']" mode="inline" :defaultOpenKeys= "openKeys">
         <a-sub-menu
           key="sub1" @click="handleMenuClick"
         >
           <span slot="title"><a-icon type="user" /><span>参数设置</span></span>
-          <a-menu-item key="1">系统参数设置</a-menu-item>
+          <a-menu-item key="1"><router-link to="/TestCmp">系统参数设置</router-link></a-menu-item>
           <a-menu-item key="2">运行参数设置</a-menu-item>
         </a-sub-menu>
         <a-sub-menu
@@ -34,7 +34,8 @@
 export default {
   data () {
     return {
-      collapsed: false
+      collapsed: false,
+      openKeys: ['sub1', 'sub2']
     }
   },
   methods: {

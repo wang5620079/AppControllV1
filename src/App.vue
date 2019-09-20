@@ -16,26 +16,12 @@
       >
         <a-sub-menu key="syssetup">
           <span slot="title"><a-icon type="folder" /><span>系统设置</span></span>
-          <a-menu-item key="syssetup_scope">管理范围</a-menu-item>
+          <a-menu-item key="paramsetting"><router-link to="/TestCmp">参数设置</router-link></a-menu-item>
+          <a-menu-item key="runtimesetting"><router-link to="/runtimesetting">运行设置</router-link></a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="servicectrl">
-          <span slot="title"><a-icon type="folder" /><span>服务控制</span></span>
-          <a-menu-item key="start_service">服务启动</a-menu-item>
-          <a-menu-item key="stop_service">服务停止</a-menu-item>
-        </a-sub-menu>
-        <a-sub-menu key="sysmonitor">
-          <span slot="title"><a-icon type="folder" /><span>系统监控</span></span>
-          <a-menu-item key="sysmonitor_service_status">服务状态</a-menu-item>
-          <a-menu-item key="sysmonitor_os_status">容量监控</a-menu-item>
-          <a-menu-item key="sysmonitor_running_status">运行状态</a-menu-item>
-        </a-sub-menu>
-        <a-sub-menu key="testcmps">
-          <span slot="title"><a-icon type="folder"/>
-            <span>组件测试</span>
-          </span>
-          <a-menu-item key="testcmps_cmp1"><router-link to="/servicectrlcmp"><a-badge count="5">测试1</a-badge></router-link></a-menu-item>
-          <a-menu-item key="testcmps_cmp2"><router-link to="/step_servicectrl_cmp">测试2</router-link></a-menu-item>
-          <a-menu-item key="testcmps_cmp3"><router-link to="/ctrlscopecmp">测试3</router-link></a-menu-item>
+          <span slot="title"><a-icon type="folder" /><span>URL监控</span></span>
+          <a-menu-item key="monitorstatus"><router-link to="/monitorstatus">监控情况</router-link></a-menu-item>
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
